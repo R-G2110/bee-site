@@ -1,0 +1,26 @@
+<section id="team">
+  <h2>Our Team</h2>
+  <p class="team-intro">
+    Welcome to our beekeeping family! We are passionate about bringing the purest honey
+    from our hives to your table. Our dedicated team works with love and expertise,
+    ensuring the highest quality while respecting bees and nature.
+  </p>
+  <div *ngFor="let member of teamMembers" class="hex-small {{member.position}}" (click)="toggleExpanded($event)">
+    <div class="team-info">
+      <div class="team-info-image">
+        <img src="assets/images/team/{{member.name}}.jpg" alt="{{member.name}}">
+      </div>
+      <div class="team-info-content">
+        <h4>{{member.name}}</h4>
+        <p>{{member.role}}</p>
+        <em>"{{member.motto}}"</em>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="hex-small hex2" (click)="toggleExpanded($event)"></div>
+  <div class="hex-small hex3" (click)="toggleExpanded($event)"></div>
+  <div class="hex-small hex4" (click)="toggleExpanded($event)"></div>
+  <div class="hex-small hex5" (click)="toggleExpanded($event)"></div>
+  <div class="hex-small hex6" (click)="toggleExpanded($event)"></div> -->
+
+</section>

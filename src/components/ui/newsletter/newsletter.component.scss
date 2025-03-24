@@ -1,0 +1,63 @@
+#newsletter {
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+  .container {
+    padding: 50px 20px;
+    border-radius: 20px;
+    background-color: var(--bg-color-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .newsletter-intro {
+      h4 {
+        margin-bottom: 10px;
+      }
+    }
+
+    .newsletter-form {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 5px; // Aggiunge spazio tra input e bottone
+
+      .floating-label {
+        flex-grow: 1; // Fa espandere l'input per occupare lo spazio libero
+        position: relative;
+      }
+
+      .floating-label input {
+        width: 100%; // Occupa tutta la larghezza del contenitore
+        min-height: 50px; // Imposta un'altezza minima più grande
+        padding: 10px; // Migliora la leggibilità
+        border: var(--border-width) solid var(--color-brown);
+        border-radius: 10px;
+        outline: none;
+        font-size: 16px;
+        background: transparent;
+      }
+
+      .floating-label label {
+        position: absolute;
+        left: 1%;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .floating-label input:focus + label,
+      .floating-label input:not(:placeholder-shown) + label {
+        top: -10px;
+        font-weight: 700;
+        color: var(--color-brown);
+      }
+
+      .floating-label input:focus {
+        outline: 2px solid var(--color-brown);
+      }
+    }
+  }
+}

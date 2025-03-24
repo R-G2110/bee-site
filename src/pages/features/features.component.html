@@ -1,0 +1,19 @@
+<section id="features">
+  <div class="container d-flex j-between">
+    <div class="item" *ngFor="let feature of features">
+      <div class="card d-flex column a-center">
+        <!-- image -->
+        <div class="image-holder">
+          <img [src]="feature.src" [alt]="feature.label">
+        </div>
+        <!-- /image -->
+        <!-- card-description -->
+        <div class="card-description txt-center">
+          <h4 class="txt-amber">{{ feature.label }}</h4>
+          <p class="txt-brown">{{ feature.overview }}</p>
+        </div>
+        <!-- /card-description -->
+      </div>
+    </div>
+  </div>
+</section>

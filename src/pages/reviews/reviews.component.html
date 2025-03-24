@@ -1,0 +1,29 @@
+<section id="reviews">
+  <div class="column container d-flex a-center">
+    <h2>What Our Customers Say</h2>
+    <p>Don't just take our word for it. Hear what our satisfied customers have to say about our honey.</p>
+
+     <!-- reviews-grid -->
+     <div class="d-grid reviews-grid">
+
+      <!-- item -->
+      <div *ngFor="let reviewer of reviews" class="item">
+        <app-star-rating [rating]='reviewer.ratings'/>
+        <em class="">"{{reviewer.overview}}"</em>
+        <div class="d-flex a-center j-between reviewer">
+          <div class="reviewer_image">
+            <img src="/assets/images/{{reviewer.name}}.jpg" alt="{{reviewer.name}}">
+          </div>
+          <div class="reviewer-info">
+            <h5>{{reviewer.name}}</h5>
+            <h6>{{reviewer.label}}</h6>
+          </div>
+        </div>
+      </div>
+      <!-- /item -->
+
+    </div>
+    <!-- /reviews-grid -->
+
+  </div>
+</section>

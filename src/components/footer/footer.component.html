@@ -1,0 +1,57 @@
+<footer>
+ <div class="container">
+  <div class="footer-top d-grid">
+    <!-- footer socials -->
+    <div class="footer-socials">
+      <div class="logo d-flex a-center">
+        <div class="image-holder">
+          <img src="/assets/logo.svg" alt="logo">
+        </div>
+        <h4 class="ml-10">Bee Site</h4>
+      </div>
+      <p>Bringing nature's sweetness straight from hive to home since 2010.</p>
+      <div class="social-media d-flex">
+        <i *ngFor="let social of footer.socials"  class="fa-brands {{social.path}}" ></i>
+      </div>
+    </div>
+    <!-- /footer socials -->
+
+    <!-- footer links -->
+    <div class="footer-links d-flex column">
+      <h4>Quick Links</h4>
+      <a *ngFor="let quickLink of footer.quick_links" [routerLink]="['/']" fragment={{quickLink.fragment}}>{{quickLink.label}}</a>
+    </div>
+    <!-- /footer links -->
+
+    <!-- footer shop -->
+    <div class="footer-shop d-flex column">
+      <h4>Our Products</h4>
+      <a *ngFor="let product of footer.products" [routerLink]="['/']" fragment="product-catalog">{{product.label}}</a>
+    </div>
+    <!-- /footer shop -->
+
+    <!-- footer contacts -->
+    <div class="footer-contacts">
+      <h4>Contact Us</h4>
+
+      <span *ngFor="let contact of footer.contacts" class="d-flex a-center">
+        <i class="{{contact.icon}}"></i>
+        <p class="ml-10">{{contact.value}}</p>
+      </span>
+
+    </div>
+    <!-- /footer contacts -->
+  </div>
+  <div class="footer-bottom d-flex j-between a-center">
+    <span class="d-flex a-center">
+      <i class="fa-regular fa-copyright "></i>
+      <p class="ml-10">2025 Bee Site. All rights reserved.</p>
+    </span>
+    <span>
+      <a href="" class="ml-20">Privacy Policy</a>
+      <a href="" class="ml-20">Terms of Service</a>
+      <a href="" class="ml-20">Shipping info</a>
+    </span>
+  </div>
+ </div>
+</footer>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Definiamo un esagono centrato in (0,0) -->
+    <g id="hexagon">
+      <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="#FFC107" stroke="#FF9800" stroke-width="2" />
+    </g>
+  </defs>
+
+  <!-- Primo cluster: esagono centrale e 6 intorno -->
+  <g>
+    <!-- Esagono centrale -->
+    <g transform="translate(150,150)">
+      <use href="#hexagon" />
+    </g>
+    <!-- Primo anello -->
+    <g transform="translate(210,150)">
+      <use href="#hexagon" />
+    </g>
+    <g transform="translate(180,202)">
+      <use href="#hexagon" />
+    </g>
+    <g transform="translate(120,202)">
+      <use href="#hexagon" />
+    </g>
+    <g transform="translate(90,150)">
+      <use href="#hexagon" />
+    </g>
+    <g transform="translate(120,98)">
+      <use href="#hexagon" />
+    </g>
+    <g transform="translate(180,98)">
+      <use href="#hexagon" />
+    </g>
+  </g>
+
+  <!-- Secondo anello: 10 esagoni aggiuntivi -->
+  <g>
+    <!-- Calcolati tramite coordinate assiali con centro (150,150) e offset:
+         x = 150 + 60*(q + r/2), y = 150 + 52*r -->
+    <!-- (2, -1): -->
+    <g transform="translate(240,98)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (2, 0): -->
+    <g transform="translate(270,150)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (1, -2): -->
+    <g transform="translate(150,46)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (1, 1): -->
+    <g transform="translate(240,202)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (0, -2): -->
+    <g transform="translate(90,46)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (0, 2): -->
+    <g transform="translate(210,254)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (-1, -1): -->
+    <g transform="translate(60,98)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (-1, 2): -->
+    <g transform="translate(150,254)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (-2, 0): -->
+    <g transform="translate(30,150)">
+      <use href="#hexagon" />
+    </g>
+    <!-- (-2, 1): -->
+    <g transform="translate(60,202)">
+      <use href="#hexagon" />
+    </g>
+  </g>
+
+  <!-- Scritta centrale -->
+  <text x="150" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="60"
+    font-weight="900" fill="#7C360E">
+    BEE SITE
+  </text>
+</svg>

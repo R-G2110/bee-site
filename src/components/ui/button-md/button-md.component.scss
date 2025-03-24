@@ -1,0 +1,18 @@
+
+.button-md {
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  outline-offset: -150px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, outline-offset 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    outline: var(--border-width) solid currentColor;
+    outline-offset: 0px;
+    filter: brightness(1.2);
+  }
+}

@@ -1,0 +1,30 @@
+<section id="home">
+  <div class="overlayer">
+    <img src="/assets/honeycomb.svg" alt="honeycomb">
+  </div>
+  <div class="container">
+
+    <!-- headline -->
+    <div class="headline">
+      <h1>Nature’s Sweetness, Straight from the Hive</h1>
+      <h5>Discover our premium selection of pure organic honey, ethically sourced and 100% natural. Handcrafted with care, our honey comes straight from our own beehives to your table. Experience the rich, raw taste of nature’s finest sweetness.</h5>
+      <a [routerLink]="['/']" fragment="product-catalog" routerLinkActive="active" class="nav-item">
+        <app-button-md label="Shop Now" customClass="bg-brown txt-white inline mr-20"/>
+      </a>
+      <a [routerLink]="['/']" fragment="about" routerLinkActive="active" class="nav-item">
+        <app-button-md label="Learn More" customClass="bg-amber txt-gray inline mr-20"/>
+      </a>
+    </div>
+    <!-- /headline -->
+
+    <!-- marketing-labels -->
+    <div class="marketing-labels">
+      <ul>
+        <li><h4>100% Natural</h4></li>
+        <li><h4>Ethically Sourced</h4></li>
+        <li><h4>No Additives</h4></li>
+      </ul>
+    </div>
+    <!-- /marketing-labels -->
+  </div>
+</section>

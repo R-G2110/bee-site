@@ -1,0 +1,48 @@
+#features {
+  height: 300px;
+  margin: 50px auto;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Crea 3 colonne uguali
+    gap: 30px; // Spazio tra gli elementi (opzionale)
+
+  }
+  .container {
+
+    .item {
+      width: 30%;
+
+      .card {
+        width: 100%;
+        padding: 10px;
+        height: 250px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        &:hover .image-holder{
+          background-color: var(--bg-color-brown);
+        }
+
+        .image-holder {
+          width: 80px;
+          height: 80px;
+          padding: 20px;
+          margin: 20px auto;
+          border-radius: 50%;
+          border: 1px solid var(--color-brown);
+          overflow: hidden;
+          background-color: var(--bg-color-beige-light);
+          transition: all 0.7s ease-in;
+
+          img {
+            fill: var(--color-amber);
+          }
+        }
+      }
+    }
+  }
+}

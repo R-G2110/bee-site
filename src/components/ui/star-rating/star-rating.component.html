@@ -1,0 +1,16 @@
+<div class="star-rating">
+  <!-- Stelle piene -->
+  <ng-container *ngFor="let star of fullStars">
+    <i class="fas fa-star"></i>
+  </ng-container>
+
+  <!-- Mezza stella -->
+  <ng-container *ngIf="halfStar">
+    <i class="fas fa-star-half-alt"></i>
+  </ng-container>
+
+  <!-- Stelle vuote -->
+  <ng-container *ngFor="let star of emptyStars">
+    <i class="far fa-star"></i>
+  </ng-container>
+</div>

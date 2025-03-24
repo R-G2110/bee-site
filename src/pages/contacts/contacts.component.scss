@@ -1,0 +1,133 @@
+#contacts {
+  background-color: var(--bg-color-beige);
+  padding: 80px 0 30px 0;
+
+  .container {
+    grid-template-columns: repeat( 2, 1fr );
+
+    .contact-socials {
+      margin-top: 10px;
+      font-size: var(--font-md);
+
+      .circle {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        outline-offset: 20px;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          outline: 2px solid var(--color-brown);
+          outline-offset: 0;
+          background-color: var(--bg-color-amber);
+          color: var(--secondary-highlight-text);
+          scale: 1.05;
+        }
+
+        i {
+          position: absolute;
+          left: 50%;
+          bottom: 30%;
+          transform: translate(-50%);
+          // color: var(--secondary-text);
+        }
+      }
+    }
+    .contact-form {
+      padding: 50px;
+      border-radius: 20px;
+      background-color: var(--bg-color-beige-light);
+
+      .floating-label {
+        position: relative;
+        text-transform: capitalize;
+        margin-bottom: 50px;
+        z-index: 100;
+      }
+
+      .floating-label input,
+      .floating-label textarea {
+        width: 100%;
+        border: none;
+        border-bottom: var(--border-width) solid var(--color-gray-dark);
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        background: transparent;
+      }
+
+      .floating-label label {
+        position: absolute;
+        left: 0;
+        top: 20%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        pointer-events: none;
+
+      }
+
+      .floating-label input:focus + label,
+      .floating-label input:not(:placeholder-shown) + label,
+      .floating-label textarea:focus + label,
+      .floating-label textarea:not(:placeholder-shown) + label,
+      .floating-label select:focus + label,
+      .floating-label select:not(:placeholder-shown) + label {
+        top: -10px;
+        font-weight: 700;
+        color: var(--color-brown);
+      }
+
+      textarea {
+        height: 150px;
+      }
+      .floating-label select {
+        width: 100%;
+        border: none;
+        border-bottom: var(--border-width) solid var(--color-gray-dark);
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        background-color: var(--bg-color-beige-light); // Cambia il background della select
+        color: var(--color-gray-dark); // Cambia il colore del testo
+        appearance: none; // Rimuove lo stile predefinito del browser
+        cursor: pointer;
+      }
+
+      .floating-label select {
+        background-color: var(--bg-color-beige-light);
+        color: var(--color-gray-dark);
+        // border: none;
+        padding: 10px;
+        appearance: none;
+      }
+
+      /* Cambia il colore dell'opzione selezionata su alcuni browser */
+      .floating-label select option:checked {
+        background-color: var(--color-amber);
+        color: var(--secondary-highlight-text);
+      }
+
+      /* Workaround per cambiare lo sfondo con una box-shadow */
+      .floating-label select:focus {
+        outline: none;
+        border: var(--border-width) solid var(--color-brown);
+        border-radius: 10px;
+
+      }
+
+
+
+
+      // .floating-label select:focus + label,
+      // .floating-label select:not(:placeholder-shown) + label {
+      //   top: -10px;
+      //   font-weight: 700;
+      //   color: var(--color-amber);
+      // }
+
+
+    }
+  }
+}

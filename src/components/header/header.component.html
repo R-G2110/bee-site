@@ -1,0 +1,33 @@
+<header >
+  <div class="container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <a [routerLink]="['/']" fragment="home" routerLinkActive="active" class="nav-item">
+        <img src="/assets/logo.svg" alt="logo">
+      </a>
+    </div>
+    <!-- /LOGO -->
+
+    <!-- NAV MENU -->
+    <nav class="nav-menu">
+      <ul>
+        <!-- links -->
+        <li *ngFor="let navLink of navLinks">
+          <a [routerLink]="['/']" fragment="{{navLink.path}}" routerLinkActive="active" class="nav-item">{{ navLink.label }}</a>
+        </li>
+
+        <!-- /links -->
+      </ul>
+    </nav>
+
+    <!-- /NAV MENU -->
+
+    <!-- ACTION MENU -->
+    <div class="action-menu">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <!-- /ACTION MENU -->
+  </div>
+</header>

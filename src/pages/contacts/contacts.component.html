@@ -1,0 +1,102 @@
+<section id="contacts">
+  <div class="container d-grid">
+
+    <!-- contact-intro -->
+    <div>
+      <h2>Get In Touch</h2>
+      <p>Have questions about our products or interested in wholesale orders? </p>
+      <p>We'd love to hear from you.</p>
+
+      <!-- contact-address -->
+      <div class="contact-address mt-20">
+        <h4>Visit Our Farm:</h4>
+        <p>123 Honey Lane
+          Beeville, CA 90210</p>
+      </div>
+      <!-- /contact-address -->
+
+      <!-- contact-info -->
+      <div class="contact-info mt-20">
+        <h4>Contact info:</h4>
+        <p>Email: info&#64;honeyhive.com</p>
+        <p>Phone: (555) 123-4567</p>
+      </div>
+      <!-- /contact-info -->
+
+      <!-- contact-socials -->
+      <div class="contact-socials d-flex">
+        <div class="circle">
+          <i class="fa-brands  fa-facebook-f"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-brands fa-pinterest-p"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+        <div class="circle">
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+      <!-- /contact-socials -->
+
+    </div>
+    <!-- /contact-intro -->
+
+    <!-- contact-form -->
+    <div class="contact-form">
+
+      <!-- form -->
+      <form action="#">
+
+        <!-- name -->
+        <div class="floating-label">
+          <input type="text" id="name" name="name" placeholder=" " required>
+          <label for="name">Your Name*</label>
+        </div>
+        <!-- /name -->
+
+        <!-- email -->
+        <div class="floating-label">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Your Email*</label>
+        </div>
+        <!-- /email -->
+
+        <!-- subject select -->
+        <div class="floating-label">
+          <select id="subject" name="subject" required>
+            <option value="product_inquiry">Product Inquiry</option>
+            <option value="wholesale_order">Wholesale Order</option>
+            <option value="beekeping_questions">Beekeping Questions</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="subject">Subject*</label>
+        </div>
+        <!-- /subject select -->
+
+        <!-- message -->
+        <div class="floating-label">
+          <textarea id="message" name="message" placeholder=" " required></textarea>
+          <label for="message">Message*</label>
+        </div>
+        <!-- /message -->
+
+        <app-button-md label="Send" customClass="bg-amber"/>
+      </form>
+      <!-- /form -->
+
+    </div>
+    <!-- /contact-form -->
+
+  </div>
+  <app-newsletter/>
+</section>
+
+
