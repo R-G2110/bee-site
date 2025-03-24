@@ -99,7 +99,7 @@ export const FOOTER = {
     { label: 'youtube', path: 'fa-youtube'},
   ],
   quick_links: [
-    { fragment: 'hero', label: 'Home' },
+    { fragment: 'home', label: 'Home' },
     { fragment: 'product-catalog', label: 'Shop' },
     { fragment: 'about', label: 'About Us' },
     { fragment: 'process', label: 'Our Process' },
