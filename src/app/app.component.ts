@@ -7,6 +7,8 @@ import { MainComponent } from '../components/main/main.component';
 import { Error404Component } from '../pages/error404/error404.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { CartComponent } from '../components/ui/cart/cart.component';
+import { ToastComponent } from '../components/ui/toast/toast.component';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -18,14 +20,21 @@ import { CartComponent } from '../components/ui/cart/cart.component';
     MainComponent,
     FooterComponent,
     Error404Component,
-    CartComponent
+    CartComponent,
+    ToastComponent
   ],
+  providers: [NotificationService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'bee-site';
   headerCartOpen: boolean = false;
+  show = false;
+
+  constructor() {
+    console.log('AppComponent initialized');
+  }
 
   onCartToggle(): void {
     this.headerCartOpen = !this.headerCartOpen;

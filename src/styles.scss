@@ -1,6 +1,9 @@
 :root {
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(0, 0%, 0%);
+  --color-red: hsl(354, 70%, 54%);
+  --color-green: hsl(134, 61%, 41%);
+  --color-green-dark: hsl(133, 61%, 33%);
   --color-amber: hsl(38, 92%, 50%);
   --color-gray-light: hsl(0, 0%, 83%);
   --color-gray-dark: hsl(0, 0%, 30%);
@@ -232,13 +235,13 @@ ul {
     position: relative;
   }
 
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-  }
+  // .close-btn {
+  //   background: none;
+  //   border: none;
+  //   font-size: 1.2rem;
+  //   position: absolute;
+  //   top: 10px;
+  //   left: 10px;
+  //   cursor: pointer;
+  // }
 }

@@ -1,0 +1,88 @@
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 400px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(120%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+  overflow: hidden;
+
+  &.show {
+    transform: translateX(0);
+  }
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    i {
+      font-size: 20px;
+    }
+
+    .message {
+      flex: 1;
+      font-size: 14px;
+      color: #333;
+    }
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: currentColor;
+      animation: progress 3s linear forwards;
+    }
+  }
+
+  // Varianti di colore
+  &.success {
+    background-color: #4caf50;
+    color: white;
+    .message { color: white !important; }
+  }
+
+  &.error {
+    background-color: #f44336;
+    color: white;
+    .message { color: white !important; }
+  }
+
+  &.info {
+    background-color: #2196f3;
+    color: white;
+    .message { color: white !important; }
+  }
+
+  &.warning {
+    background-color: var(--bg-color-brown);
+    color: var(--color-white);
+    .message { color: var(--color-white) !important; }
+  }
+}
+
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
