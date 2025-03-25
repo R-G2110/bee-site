@@ -1,62 +1,54 @@
-// cart.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export interface CartItem {
-  id: string;
+  productId: number;
   name: string;
-  quantity: number;
   price: number;
-  // Altri campi possono essere aggiunti se necessario (es. immagine, descrizione, etc.)
+  quantity: number;
+  type: string;  // Nuova proprietà
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  // Stato iniziale: carrello vuoto
-  private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
+  private items: CartItem[] = [];
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
 
-  constructor() { }
+  // Osservabile per notificare i cambiamenti del carrello
+  cartItems$ = this.cartItemsSubject.asObservable();
 
-  // Ritorna un Observable per sottoscrivere le modifiche del carrello
-  getCartItems(): Observable<CartItem[]> {
-    return this.cartItemsSubject.asObservable();
-  }
-
-  // Aggiunge un prodotto al carrello
+  // Aggiunge un nuovo item o incrementa la quantità se già presente
   addItem(item: CartItem): void {
-    const currentItems = this.cartItemsSubject.value;
-    // Verifica se l'elemento esiste già: se sì, aggiorna la quantità
-    const itemIndex = currentItems.findIndex(ci => ci.id === item.id);
-    if (itemIndex > -1) {
-      currentItems[itemIndex].quantity += item.quantity;
+    const index = this.items.findIndex(i => i.productId === item.productId);
+    if (index !== -1) {
+      this.items[index].quantity += item.quantity;
     } else {
-      currentItems.push(item);
+      this.items.push(item);
     }
-    this.cartItemsSubject.next([...currentItems]);
+    this.cartItemsSubject.next(this.items);
   }
 
-  // Aggiorna la quantità di un prodotto specifico
-  updateItemQuantity(id: string, quantity: number): void {
-    const currentItems = this.cartItemsSubject.value;
-    const itemIndex = currentItems.findIndex(ci => ci.id === id);
-    if (itemIndex > -1) {
-      currentItems[itemIndex].quantity = quantity;
-      this.cartItemsSubject.next([...currentItems]);
-    }
-  }
-
-  // Rimuove un prodotto dal carrello
-  removeItem(id: string): void {
-    const currentItems = this.cartItemsSubject.value;
-    const updatedItems = currentItems.filter(ci => ci.id !== id);
-    this.cartItemsSubject.next([...updatedItems]);
+  // Rimuove un item dal carrello
+  removeItem(productId: number): void {
+    this.items = this.items.filter(item => item.productId !== productId);
+    this.cartItemsSubject.next(this.items);
   }
 
   // Svuota il carrello
   clearCart(): void {
-    this.cartItemsSubject.next([]);
+    this.items = [];
+    this.cartItemsSubject.next(this.items);
+  }
+
+  // Restituisce il numero totale di articoli
+  getTotalItems(): number {
+    return this.items.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  // Calcola il prezzo totale
+  getTotalPrice(): number {
+    return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 }
-

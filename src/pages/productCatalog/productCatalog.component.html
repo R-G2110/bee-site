@@ -5,186 +5,42 @@
 
     <!-- filters -->
     <div class="filters d-flex j-center a-center gap-10">
-      <app-button-sm label="All Products" customClass="bg-beige-light"/>
-      <app-button-sm label="Raw Honey" customClass="bg-beige-light"/>
-      <app-button-sm label="Infused Honey" customClass="bg-beige-light"/>
-      <app-button-sm label="Floreal Honey" customClass="bg-beige-light"/>
-      <app-button-sm label="Exotic Honey" customClass="bg-beige-light"/>
-      <app-button-sm label="Honeycomb" customClass="bg-beige-light"/>
-      <app-button-sm label="Gift Set" customClass="bg-beige-light"/>
+      <app-button-sm
+        *ngFor="let category of ['All Products', 'Raw Honey', 'Infused Honey', 'Floreal Honey', 'Exotic Honey', 'Honeycomb', 'Gift Set']"
+        [label]="category"
+        [customClass]="selectedCategory === category ? 'bg-amber' : 'bg-beige-light'"
+        (click)="filterProducts(category)"
+      />
     </div>
     <!-- /filters -->
 
     <!-- card-wrapper -->
     <div class="card-wrapper">
-
       <!-- card -->
-      <div class="card d-flex column ">
+      <div class="card d-flex column" *ngFor="let product of filteredProducts">
         <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
+          <img [src]="product.image" [alt]="product.name">
         </div>
         <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
+          <h4>{{ product.name }}</h4>
+          <p>{{ product.description }}</p>
         </div>
         <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
+          <h4>{{ product.price | currency:'EUR' }}</h4>
+          <app-button-md
+            label="Add to cart"
+            customClass="bg-amber"
+            (click)="addToCart(product)"
+          />
         </div>
       </div>
       <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
-      <!-- card -->
-      <div class="card d-flex column ">
-        <div class="image-holder">
-          <img src="/assets/images/manuka honey.png" alt="">
-        </div>
-        <div class="description">
-          <h4>Manuka Honey</h4>
-          <p>Premium honey known for its unique properties and bold flavor.</p>
-        </div>
-        <div class="card-actions d-flex a-center j-between">
-          <h4>$20.00</h4>
-          <app-button-md label="Add to cart" customClass="bg-amber "/>
-        </div>
-      </div>
-      <!-- /card -->
-
     </div>
-    <!-- /card-wrapper -->
 
     <!-- view all button -->
-     <div class="view-all">
+    <div class="view-all">
       <app-button-md label="View all" customClass="bg-beige-light"/>
-     </div>
+    </div>
     <!-- /view all button -->
   </div>
 </section>

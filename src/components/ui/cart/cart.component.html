@@ -1,0 +1,39 @@
+<div class="cart-container">
+  <h2>Il tuo Carrello</h2>
+
+  <!-- Se il carrello è vuoto -->
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    <p>Il tuo carrello è vuoto.</p>
+  </div>
+
+  <!-- Se ci sono articoli nel carrello -->
+  <div *ngIf="cartItems.length > 0">
+    <ul>
+      <li *ngFor="let item of cartItems">
+        <div class="item-details">
+          <strong>{{ item.name }}</strong>
+          <div class="item-type">Tipo: {{ item.type }}</div>
+          <div class="item-quantity">Quantità: {{ item.quantity }}</div>
+        </div>
+        <div class="item-price">{{ item.price | currency:'EUR' }}</div>
+        <button class="remove-button" (click)="removeItem(item.productId)">
+          Rimuovi
+        </button>
+      </li>
+    </ul>
+
+    <div class="cart-total">
+      <strong>Totale:</strong>
+      <strong>{{ totalPrice | currency:'EUR' }}</strong>
+    </div>
+
+    <div class="cart-actions">
+      <button class="clear-cart" (click)="clearCart()">
+        Svuota Carrello
+      </button>
+      <button class="checkout" (click)="checkout()">
+        Procedi al Checkout
+      </button>
+    </div>
+  </div>
+</div>
