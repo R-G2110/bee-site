@@ -1,54 +1,53 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-export interface CartItem {
-  productId: number;
-  name: string;
-  price: number;
-  quantity: number;
-  type: string;  // Nuova proprietà
-}
+import { CartItem } from '../models/cart-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private items: CartItem[] = [];
-  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+  private cartItems = new BehaviorSubject<CartItem[]>([]);
 
-  // Osservabile per notificare i cambiamenti del carrello
-  cartItems$ = this.cartItemsSubject.asObservable();
+  cartItems$ = this.cartItems.asObservable();
 
-  // Aggiunge un nuovo item o incrementa la quantità se già presente
-  addItem(item: CartItem): void {
-    const index = this.items.findIndex(i => i.productId === item.productId);
-    if (index !== -1) {
-      this.items[index].quantity += item.quantity;
+  addToCart(item: CartItem): void {
+    const currentItems = this.cartItems.getValue();
+    const existingItem = currentItems.find(i => i.id === item.id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
     } else {
-      this.items.push(item);
+      currentItems.push({ ...item, quantity: 1 });
     }
-    this.cartItemsSubject.next(this.items);
+
+    this.cartItems.next([...currentItems]);
   }
 
-  // Rimuove un item dal carrello
-  removeItem(productId: number): void {
-    this.items = this.items.filter(item => item.productId !== productId);
-    this.cartItemsSubject.next(this.items);
+  removeFromCart(item: CartItem): void {
+    const currentItems = this.cartItems.getValue();
+    const existingItem = currentItems.find(i => i.id === item.id);
+
+    if (existingItem && existingItem.quantity > 1) {
+      existingItem.quantity -= 1;
+      this.cartItems.next([...currentItems]);
+    }
   }
 
-  // Svuota il carrello
+  removeItem(item: CartItem): void {
+    const currentItems = this.cartItems.getValue();
+    this.cartItems.next(currentItems.filter(i => i.id !== item.id));
+  }
+
   clearCart(): void {
-    this.items = [];
-    this.cartItemsSubject.next(this.items);
+    this.cartItems.next([]);
   }
 
-  // Restituisce il numero totale di articoli
   getTotalItems(): number {
-    return this.items.reduce((total, item) => total + item.quantity, 0);
+    return this.cartItems.getValue().reduce((sum, item) => sum + item.quantity, 0);
   }
 
   // Calcola il prezzo totale
   getTotalPrice(): number {
-    return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
+    return this.cartItems.getValue().reduce((total, item) => total + item.price * item.quantity, 0);
   }
 }

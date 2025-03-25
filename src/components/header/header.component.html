@@ -26,7 +26,10 @@
     <!-- ACTION MENU -->
     <div class="action-menu">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <i class="fa-solid fa-cart-shopping" (click)="toggleCart()"></i>
+      <div class="cart-icon" (click)="toggleCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+      </div>
     </div>
     <!-- /ACTION MENU -->
 

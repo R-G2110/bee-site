@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService, CartItem } from '../../../services/cart.service';
+import { CartService } from '../../../services/cart.service';
+import { CartItem } from '../../../models/cart-item';
 
 @Component({
   selector: 'app-cart',
@@ -28,9 +29,22 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }
 
+  // Aggiorna la quantità di un item
+  updateQuantity(item: CartItem, increment: boolean): void {
+    if (increment) {
+      this.cartService.addToCart(item);
+    } else {
+      if (item.quantity > 1) {
+        this.cartService.removeFromCart(item);
+      } else {
+        this.cartService.removeItem(item);
+      }
+    }
+  }
+
   // Rimuove un item
-  removeItem(productId: number): void {
-    this.cartService.removeItem(productId);
+  removeItem(item: CartItem): void {
+    this.cartService.removeItem(item);
   }
 
   // Svuota il carrello

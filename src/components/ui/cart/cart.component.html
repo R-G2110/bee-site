@@ -13,10 +13,14 @@
         <div class="item-details">
           <strong>{{ item.name }}</strong>
           <div class="item-type">Tipo: {{ item.type }}</div>
-          <div class="item-quantity">Quantità: {{ item.quantity }}</div>
+          <div class="item-quantity">
+            <button class="quantity-btn" (click)="updateQuantity(item, false)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button class="quantity-btn" (click)="updateQuantity(item, true)">+</button>
+          </div>
         </div>
         <div class="item-price">{{ item.price | currency:'EUR' }}</div>
-        <button class="remove-button" (click)="removeItem(item.productId)">
+        <button class="remove-button" (click)="removeItem(item)">
           Rimuovi
         </button>
       </li>
