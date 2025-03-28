@@ -31,6 +31,7 @@ export class AppComponent {
   title = 'bee-site';
   headerCartOpen: boolean = false;
   show = false;
+  activeSection: string = 'home';
 
   constructor() {
     console.log('AppComponent initialized');
@@ -42,5 +43,10 @@ export class AppComponent {
 
   onCartClose(): void {
     this.headerCartOpen = false;
+  }
+
+  onSectionChanged(section: string) {
+    this.activeSection = section;
+    console.log('Sezione attiva aggiornata:', this.activeSection);
   }
 }

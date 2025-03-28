@@ -23,11 +23,11 @@ export class CartService {
     if (existingItem) {
       existingItem.quantity += 1;
       console.log('Updating quantity, showing notification');
-      this.notificationService.showSuccess(`Quantity of ${item.name} updated in cart`);
+      this.notificationService.showSuccess(`Quantità di ${item.name} aggiornata nel carrello`);
     } else {
       currentItems.push({ ...item, quantity: 1 });
       console.log('Adding new item, showing notification');
-      this.notificationService.showSuccess(`${item.name} added to cart`);
+      this.notificationService.showSuccess(`${item.name} aggiunto al carrello`);
     }
 
     this.cartItems.next([...currentItems]);
@@ -41,7 +41,7 @@ export class CartService {
     if (existingItem && existingItem.quantity > 1) {
       existingItem.quantity -= 1;
       console.log('Reducing quantity, showing notification');
-      this.notificationService.showInfo(`Quantity of ${item.name} reduced in cart`);
+      this.notificationService.showInfo(`Quantità di ${item.name} ridotta nel carrello`);
       this.cartItems.next([...currentItems]);
     }
   }
@@ -50,13 +50,13 @@ export class CartService {
     console.log('Removing item completely:', item);
     const currentItems = this.cartItems.getValue();
     this.cartItems.next(currentItems.filter(i => i.id !== item.id));
-    this.notificationService.showWarning(`${item.name} removed from cart`);
+    this.notificationService.showWarning(`${item.name} rimosso dal carrello`);
   }
 
   clearCart(): void {
     console.log('Clearing cart, showing notification');
     this.cartItems.next([]);
-    this.notificationService.showInfo('Cart emptied');
+    this.notificationService.showInfo('Carrello svuotato');
   }
 
   getTotalItems(): number {

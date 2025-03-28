@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   cartItemCount: number = 0;
   private cartSubscription: Subscription;
 
+  @Input() activeSection!: string;
   @Output() cartToggle = new EventEmitter<boolean>();
 
   constructor(private cartService: CartService) {

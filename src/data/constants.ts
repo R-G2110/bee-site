@@ -15,6 +15,7 @@ export const FEATURES = [
 ];
 
 export const NAV_LINKS = [
+  { path: 'home', label: 'Home' },
   { path: 'product-catalog', label: 'Shop' },
   { path: 'about', label: 'About Us' },
   { path: 'process', label: 'Our Process' },

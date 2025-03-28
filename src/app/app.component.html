@@ -1,6 +1,6 @@
-<app-header (cartToggle)="onCartToggle()"></app-header>
+<app-header  [activeSection]="activeSection" (cartToggle)="onCartToggle()"></app-header>
 <app-error404/>
-<app-main/>
+<app-main (sectionChanged)="onSectionChanged($event)"/>
 <app-footer/>
 
 <!-- Offcanvas Cart -->

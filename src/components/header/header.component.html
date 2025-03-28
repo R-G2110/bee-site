@@ -14,7 +14,7 @@
       <ul>
         <!-- links -->
         <li *ngFor="let navLink of navLinks">
-          <a [routerLink]="['/']" fragment="{{navLink.path}}" routerLinkActive="active" class="nav-item">{{ navLink.label }}</a>
+          <a [routerLink]="['/']" fragment="{{navLink.path}}" [ngClass]="{'active': activeSection === navLink.path}" class="nav-item">{{ navLink.label }}</a>
         </li>
 
         <!-- /links -->
